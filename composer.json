@@ -1,8 +1,8 @@
 {
-  "name": "allen/yii2-fond-authclient",
+  "name": "summic/yii2-fond-authclient",
   "description": "Fond.io extenion for using via yii2-authclient",
   "keywords": ["yii2", "authclient", "oauth", "fond"],
-  "homepage": "http://git.fond.io/allen/yii2-fond-authclient",
+  "homepage": "https://github.com/summic/yii2-fond-authclient.git",
   "require": {
     "yiisoft/yii2-authclient": "~2.1.0"
   },
@@ -15,7 +15,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "allen\\authclient\\": ""
+      "summic\\authclient\\": ""
     }
   },
   "minimum-stability": "dev"
