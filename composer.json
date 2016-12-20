@@ -1,0 +1,22 @@
+{
+  "name": "allen/yii2-fond-authclient",
+  "description": "Fond.io extenion for using via yii2-authclient",
+  "keywords": ["yii2", "authclient", "oauth", "fond"],
+  "homepage": "http://git.fond.io/allen/yii2-fond-authclient",
+  "require": {
+    "yiisoft/yii2-authclient": "~2.1.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Allen Wang",
+      "email": "hi@summic.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "allen\\authclient\\": ""
+    }
+  },
+  "minimum-stability": "dev"
+}
