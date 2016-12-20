@@ -6,34 +6,10 @@ This extension adds Fond.io OAuth2 supporting for [yii2-authclient](https://gith
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-add
-
-```json
-"repositories": [
-		{
-            "type": "package",
-            "package": {
-                "name": "allen/yii2-fond-authclient",
-                "version": "0.1.0",
-                "type": "package",
-                "source": {
-                    "url": "git@git.fond.io:allen/yii2-fond-authclient.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        }
-]
-```
-to the `require` section of your composer.json.
-
-
-and run
+run
 
 ```
-composer require allen/yii2-fond-authclient.git "*"
-
-composer require --prefer-dist yiisoft/yii2-authclient
+composer require summic/yii2-fond-authclient
 ```
 
 
@@ -51,7 +27,7 @@ and add the Fond client to your auth clients.
         'class' => 'yii\authclient\Collection',
         'clients' => [
             'fond' => [
-                'class' => 'allen\authclient\Fond',
+                'class' => 'summic\authclient\Fond',
                     'clientId' => 'fond_client_id',
                     'clientSecret' => 'fond_client_secret',
                 ],
