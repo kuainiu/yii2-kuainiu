@@ -1,5 +1,5 @@
 <?php
-namespace allen\authclient;
+namespace summic\authclient;
 
 use yii\authclient\OAuth2;
 
