@@ -22,6 +22,11 @@ Register your application [in Fond.io](https://www.fond.io/developer/clients/reg
 and add the Fond client to your auth clients.
 
 ```php
+'modules' => [
+	'oauth' => [
+            'class' => 'summic\authclient\Module',
+    ]
+],
 'components' => [
     'authClientCollection' => [
         'class' => 'yii\authclient\Collection',
