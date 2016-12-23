@@ -1,4 +1,4 @@
-# yii2-fond-authclient
+# yii2-fond
 [![Latest Stable Version](https://poser.pugx.org/summic/yii2-fond/v/stable)](https://packagist.org/packages/summic/yii2-fond)
 [![Latest Unstable Version](https://poser.pugx.org/summic/yii2-fond/v/unstable)](https://packagist.org/packages/summic/yii2-fond)
 [![Total Downloads](https://poser.pugx.org/summic/yii2-fond/downloads)](https://packagist.org/packages/summic/yii2-fond)
@@ -13,7 +13,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require summic/yii2-fond-authclient
+composer require summic/yii2-fond
 ```
 
 or add
@@ -27,63 +27,97 @@ to the require section of your composer.json file.
 
 ## Usage
 
-Register your application [in Fond.io](https://www.fond.io/developer/clients/register)
+在 [Fond.io](https://www.fond.io/developer/clients/register) 注册您的应用
 
-Once the extension is installed, modify your application configuration to include:
-
+之后,修改需要登录项目的配置文件(main.php 或 main-local.php)
 ```php
-
 return [
-    'modules' => [
-        ...
-        'oauth' => [
-            'class' => 'summic\authclient\Module',
-        ],
-        ...
-    ],
-    ...
     'components' => [
-        'authClientCollection' => [
-                'class' => 'yii\authclient\Collection',
-                'clients' => [
-                    'fond' => [
-                        'class' => 'summic\authclient\Fond',
-                            'clientId' => 'fond_client_id',
-                            'clientSecret' => 'fond_client_secret',
-                        ],
-                    ],
-                    // other clients
-                ],
-            ],
-    ]
+		'authClientCollection' => [
+	        'class' => 'yii\authclient\Collection',
+	        'clients' => [
+	            'fond' => [
+	                'class' => 'summic\fond\components\authclient\Fond',
+	                'clientId' => 'fond_client_id',
+	                'clientSecret' => 'fond_client_secret',
+	            ],
+	        ],
+	    ],
+	    ...
+	]
 ];
  ```
-
-And run migrations:
-
-```shell
-php yii migrate --migrationPath=@vendor/summic/yii2-fond-authclient/migrations
+module 的配置需要放在 common 项目的配置文件(main.php 或 main-local.php 因为数据迁移需要执行console)
+```php
+'modules' => [
+    'fond' => [
+        'class' => 'summic\fond\Module',
+    ],
+    ...
+],
 ```
 
-Add a oauth login button on your login view pages
+
+执行数据迁移:
+
+```shell
+php yii migrate --migrationPath=@vendor/summic/yii2-fond/migrations
+```
+
+在登录页面增加 『使用企业通行证登录』 链接
 
 ```html
 <div class="social-auth-links text-center">
     <p class="text-light-blue">- 或 -</p>
-    <a href="/oauth/auth?authclient=fond" class="btn btn-social btn-facebook btn-flat">
-      <i class="fa fa-facebook"></i>使用企业通行证登录
+    <a href="/fond/user/auth?authclient=fond" class="btn btn-block btn-social btn-dropbox">
+        <i class="fa fa-ticket"></i>使用企业通行证登录
     </a>
 </div>
 ```
 
-Or just change the loginAction of SiteController as this:
+如果全站只允许员工访问，不需要登录页面，直接修改 SiteController 的 actionLogin 方法:
 
 ```php
- public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-        $this->redirect(['oauth','authclient'=>fond]);
-    }
+public function actionLogin()
+{
+	if (!Yii::$app->user->isGuest) {
+    	return $this->goHome();
+	}
+    $this->redirect(['oauth','authclient'=>fond]);
+}
+```
+
+## 使用用户信息
+在 view 文件中直接使用, 注意: 用户未登录界面调用会抛异常
+```html
+//头像
+<?=Yii::$app->user->identity->avatar?>
+//帐号
+<?=Yii::$app->user->identity->username?>
+//中文名
+<?=Yii::$app->user->identity->fullname?>
+//职位
+<?=Yii::$app->user->identity->position?>
+```
+
+## 获取组织架构
+```php
+$collection = Yii::$app->get('authClientCollection');
+$client = $collection->getClient('fond');
+$response = $client->api('department/list', 'GET', $params);
+```
+
+## One more thing...
+
+如果你的项目使用了 AdinLTE, GOOGLE 字体被墙还是比较恶心的，在 composer.json 增加以下内容可解决：
+
+```json
+"scripts": {
+    "post-install-cmd": [
+        "summic\\fond\\components\\AdminLTEInstaller::initProject"
+    ],
+    "post-update-cmd": [
+        "summic\\fond\\components\\AdminLTEInstaller::initProject"
+    ]
+}
 ```

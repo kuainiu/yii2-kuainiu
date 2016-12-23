@@ -18,5 +18,5 @@
       "summic\\fond\\": ""
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }

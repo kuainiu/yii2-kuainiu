@@ -13,10 +13,12 @@ class Fond extends OAuth2
      * @inheritdoc
      */
     public $tokenUrl = 'https://www.fond.io/auth/token';
+
     /**
      * @inheritdoc
      */
     public $apiBaseUrl = 'https://www.fond.io/api';
+
     /**
      * @inheritdoc
      */

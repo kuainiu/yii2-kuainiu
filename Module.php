@@ -6,16 +6,25 @@
  * Time: 3:23 PM
  */
 
-namespace summic\authclient;
+namespace summic\fond;
 
 class Module extends \yii\base\Module
 {
+    //public $controllerNamespace = "summic\\fond\\controllers";
 
-    public $userFieldMap = array(
-        'username'      => 'username',
-        'email'         => 'email',
-        'password_hash' => 'password_hash',
-    );
+    public $tableMap = [
+        'user_table'            =>  '{{%user}}',
+        'username_field'        =>  'name',
+        'email_field'           =>  'email',
+        'password_hash_field'   =>  'password_hash',
+        'fullname_field'        =>  'fullname',
+        'avatar_field'          =>  'avatar',
+        'position_field'        =>  'position',
+    ];
+
+    public function go(){
+        echo 'OK.';
+    }
 
     public function init()
     {
