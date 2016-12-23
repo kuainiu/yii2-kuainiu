@@ -1,4 +1,8 @@
 # yii2-fond-authclient
+[![Latest Stable Version](https://poser.pugx.org/summic/yii2-fond-authclient/v/stable)](https://packagist.org/packages/summic/yii2-fond-authclient)
+[![Latest Unstable Version](https://poser.pugx.org/summic/yii2-fond-authclient/v/unstable)](https://packagist.org/packages/summic/yii2-fond-authclient)
+[![Total Downloads](https://poser.pugx.org/summic/yii2-fond-authclient/downloads)](https://packagist.org/packages/summic/yii2-fond-authclient)
+[![License](https://poser.pugx.org/summic/yii2-fond-authclient/license)](https://packagist.org/packages/summic/yii2-fond-authclient)
 
 This extension adds Fond.io OAuth2 supporting for [yii2-authclient](https://github.com/yiisoft/yii2-authclient).
 
