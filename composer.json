@@ -1,8 +1,8 @@
 {
-  "name": "summic/yii2-fond-authclient",
+  "name": "summic/yii2-fond",
   "description": "Fond.io extenion for using via yii2-authclient",
   "keywords": ["yii2", "authclient", "oauth", "fond"],
-  "homepage": "https://github.com/summic/yii2-fond-authclient.git",
+  "homepage": "https://github.com/summic/yii2-fond.git",
   "require": {
     "yiisoft/yii2-authclient": "~2.1.0"
   },
@@ -15,7 +15,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "summic\\authclient\\": ""
+      "summic\\fond\\": ""
     }
   },
   "minimum-stability": "dev"

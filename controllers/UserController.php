@@ -7,11 +7,10 @@
  * Time: 4:48 PM
  */
 
-namespace summic\authclient\controllers;
+namespace summic\fond\controllers;
 
 use yii;
 use yii\web\Controller;
-use summic\authclient\models\Auth;
 
 class UserController extends Controller
 {
@@ -22,7 +21,7 @@ class UserController extends Controller
     {
         return [
             'auth' => [
-                'class' => 'yii\authclient\AuthAction',
+                'class' => 'yii\fond\components\authclient\AuthAction',
                 'successCallback' => [$this, 'oAuthSuccess'],
             ]
         ];
@@ -71,7 +70,7 @@ class UserController extends Controller
         ])->one();
 
         if (Yii::$app->user->isGuest) {
-            if ($user) { // login
+            if ($user) { // 登录
                 Yii::$app->user->login($user);
                 $this->goBack();
             } else { // 注册新用户
