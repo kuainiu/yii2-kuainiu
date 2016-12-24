@@ -6,7 +6,7 @@
  * Time: 2:16 PM
  */
 
-namespace summic\fond\components;
+namespace fond\components;
 
 use yii;
 
