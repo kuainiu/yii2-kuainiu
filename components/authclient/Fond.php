@@ -1,5 +1,5 @@
 <?php
-namespace summic\fond\components\authclient;
+namespace fond\components\authclient;
 
 use yii\authclient\OAuth2;
 

@@ -6,12 +6,10 @@
  * Time: 3:23 PM
  */
 
-namespace summic\fond;
+namespace fond;
 
 class Module extends \yii\base\Module
 {
-    public $controllerNamespace = "summic\\fond\\controllers";
-
     public $tableMap = [
         'user_table'            =>  '{{%user}}',
         'username_field'        =>  'username',

@@ -7,7 +7,7 @@
  * Time: 4:48 PM
  */
 
-namespace summic\fond\controllers;
+namespace fond\controllers;
 
 use yii;
 use yii\web\Controller;

@@ -38,7 +38,7 @@ return [
 	        'class' => 'yii\authclient\Collection',
 	        'clients' => [
 	            'fond' => [
-	                'class' => 'summic\fond\components\authclient\Fond',
+	                'class' => 'fond\components\authclient\Fond',
 	                'clientId' => 'fond_client_id',
 	                'clientSecret' => 'fond_client_secret',
 	            ],
@@ -54,7 +54,7 @@ module 的配置需要放在 common 项目的配置文件(main.php 或 main-loca
 ```php
 'modules' => [
     'fond' => [
-        'class' => 'summic\fond\Module',
+        'class' => 'fond\Module',
     ],
     ...
 ],
@@ -69,7 +69,7 @@ php yii migrate --migrationPath=@vendor/summic/yii2-fond/migrations
 ```php
 'modules' => [
     'fond' => [
-        'class' => 'summic\fond\Module',
+        'class' => 'fond\Module',
         'tableMap' => [ // Optional, but if defined, all must be declared
             'user_table'            =>  '{{%user}}',
             'username_field'        =>  'name',
@@ -124,7 +124,7 @@ public function actionLogin()
 
 ### 获取组织架构信息
 ```php
-use summic\fond\components\FondClient;
+use fond\components\FondClient;
 ...
 $client = new FondClient();
 $response = $client->DepartmentList(82);
@@ -132,7 +132,7 @@ $response = $client->DepartmentList(82);
 
 ### 获取组织架构下的用户信息
 ```php
-use summic\fond\components\FondClient;
+use fond\components\FondClient;
 ...
 $client = new FondClient();
 $response = $client->DepartmentUser(82);
@@ -140,7 +140,7 @@ $response = $client->DepartmentUser(82);
 
 ### 发送企业微信消息
 ```php
-use summic\fond\components\FondClient;
+use fond\components\FondClient;
 ...
 $client = new FondClient();
 $response = $client->Notification('Allen', 'Hello World');
@@ -153,10 +153,10 @@ $response = $client->Notification('Allen', 'Hello World');
 ```json
 "scripts": {
     "post-install-cmd": [
-        "summic\\fond\\components\\AdminLTEInstaller::initProject"
+        "fond\\components\\AdminLTEInstaller::initProject"
     ],
     "post-update-cmd": [
-        "summic\\fond\\components\\AdminLTEInstaller::initProject"
+        "fond\\components\\AdminLTEInstaller::initProject"
     ]
 }
 ```

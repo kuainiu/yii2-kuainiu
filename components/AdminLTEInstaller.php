@@ -4,7 +4,7 @@
  * createTime : 16/12/24 上午10:44
  * description: 
  */
-namespace summic\fond\components;
+namespace fond\components;
 
 use yii\composer\Installer;
 class AdminLTEInstaller extends Installer
