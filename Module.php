@@ -10,6 +10,9 @@ namespace fond;
 
 class Module extends \yii\base\Module
 {
+
+    //public $controllerNamespace = 'vendor\summic\fond\controllers';
+
     public $tableMap = [
         'user_table'            =>  '{{%user}}',
         'username_field'        =>  'username',
