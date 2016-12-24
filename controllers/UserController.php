@@ -22,7 +22,7 @@ class UserController extends Controller
         return [
             'auth' => [
                 'class' => 'yii\authclient\AuthAction',
-                'successCallback' => [$this, 'oAuthSuccess'],
+                'successCallback' => [$this, 'successCallback'],
             ]
         ];
     }
@@ -33,7 +33,7 @@ class UserController extends Controller
      * @param \yii\authclient\ClientInterface $client
      * @return boolean | \yii\web\Response
      */
-    public function oAuthSuccess($client)
+    public function successCallback($client)
     {
         $profile = $client->getUserAttributes();
 

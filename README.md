@@ -9,6 +9,7 @@ This extension adds Fond.io OAuth2 supporting for [yii2-authclient](https://gith
 ## 安装
 
 yii2-fond 需要使用 [composer](http://getcomposer.org/download/) 安装.
+*建议使用 composer 国内源 composer config repo.packagist composer https://packagist.phpcomposer.com*
 
 在项目根目录运行
 
@@ -28,7 +29,7 @@ composer install -vvv
 
 ## 配置
 
-首先需要在 [Fond.io](https://www.fond.io/developer/clients/register) 注册您的应用
+首先需要在 [Fond.io](https://www.fond.io/developer/app-create) 注册您的应用
 然后修改需使用统一登录项目的配置文件(main.php 或 main-local.php)
 ```php
 return [
@@ -64,7 +65,7 @@ module 的配置需要放在 common 项目的配置文件(main.php 或 main-loca
 ```shell
 php yii migrate --migrationPath=@vendor/summic/yii2-fond/migrations
 ```
-在 user 表增加了 avatar fullname position 三个字段用来存储头像、中文名和职位，字段名冲突或有错误的话,可以在 modules 中配置,例如:
+*以上脚本在 user 表增加了 avatar fullname position 三个字段用来存储头像、中文名和职位，字段名冲突或有错误的话,可以在 modules 中配置,例如:*
 ```php
 'modules' => [
     'fond' => [
@@ -102,7 +103,7 @@ public function actionLogin()
 	if (!Yii::$app->user->isGuest) {
     	return $this->goHome();
 	}
-    $this->redirect(['oauth','authclient'=>fond]);
+    $this->redirect(['fond/user/auth','authclient'=>'fond']);
 }
 ```
 
