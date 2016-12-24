@@ -6,30 +6,30 @@
 
 This extension adds Fond.io OAuth2 supporting for [yii2-authclient](https://github.com/yiisoft/yii2-authclient).
 
-## Installation
+## 安装
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+yii2-fond 需要使用 [composer](http://getcomposer.org/download/) 安装.
 
-Either run
+在项目根目录运行
 
 ```
 composer require summic/yii2-fond
 ```
 
-or add
-
+或者手动添加到 composer.json
 
 ```
 "summic/yii2-fond-authclient": "*"
 ```
+之后
+```
+composer install -vvv
+```
 
-to the require section of your composer.json file.
+## 配置
 
-## Usage
-
-在 [Fond.io](https://www.fond.io/developer/clients/register) 注册您的应用
-
-之后,修改需要登录项目的配置文件(main.php 或 main-local.php)
+首先需要在 [Fond.io](https://www.fond.io/developer/clients/register) 注册您的应用
+然后修改需使用统一登录项目的配置文件(main.php 或 main-local.php)
 ```php
 return [
     'components' => [
@@ -47,7 +47,9 @@ return [
 	]
 ];
  ```
-module 的配置需要放在 common 项目的配置文件(main.php 或 main-local.php 因为数据迁移需要执行console)
+
+module 的配置需要放在 common 项目的配置文件(main.php 或 main-local.php )
+
 ```php
 'modules' => [
     'fond' => [
@@ -57,11 +59,28 @@ module 的配置需要放在 common 项目的配置文件(main.php 或 main-loca
 ],
 ```
 
-
 执行数据迁移:
 
 ```shell
 php yii migrate --migrationPath=@vendor/summic/yii2-fond/migrations
+```
+在 user 表增加了 avatar fullname position 三个字段用来存储头像、中文名和职位，字段名冲突或有错误的话,可以在 modules 中配置,例如:
+```php
+'modules' => [
+    'fond' => [
+        'class' => 'summic\fond\Module',
+        'tableMap' => [ // Optional, but if defined, all must be declared
+            'user_table'            =>  '{{%user}}',
+            'username_field'        =>  'name',
+            'email_field'           =>  'email',
+            'password_hash_field'   =>  'password_hash',
+            'fullname_field'        =>  'chinese_name',
+            'avatar_field'          =>  'avatar',
+            'position_field'        =>  'position',
+        ],
+    ],
+    ...
+],
 ```
 
 在登录页面增加 『使用企业通行证登录』 链接
@@ -87,7 +106,9 @@ public function actionLogin()
 }
 ```
 
-## 使用用户信息
+## 使用
+
+### 用户信息
 在 view 文件中直接使用, 注意: 用户未登录界面调用会抛异常
 ```html
 //头像
@@ -100,12 +121,28 @@ public function actionLogin()
 <?=Yii::$app->user->identity->position?>
 ```
 
-## 获取组织架构
+### 获取组织架构信息
+```php
+use summic\fond\components\FondClient;
+...
+$client = new FondClient();
+$response = $client->DepartmentList(82);
+```
+
+### 获取组织架构下的用户信息
 ```php
 use summic\fond\components\FondClient;
 ...
 $client = new FondClient();
 $response = $client->DepartmentUser(82);
+```
+
+### 发送企业微信消息
+```php
+use summic\fond\components\FondClient;
+...
+$client = new FondClient();
+$response = $client->Notification('Allen', 'Hello World');
 ```
 
 ## One more thing...

@@ -20,9 +20,9 @@ class FondClient
 
     /**
      * 发送企业微信通知
-     * @param $to
-     * @param $text
-     * @param string $priority
+     * @param $to | username
+     * @param $text | 文本消息
+     * @param string $priority | 默认low, 如果需要同步发送, 改为 high
      * @return mixed
      */
     public function Notification($to,$text,$priority='low'){
