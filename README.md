@@ -102,9 +102,10 @@ public function actionLogin()
 
 ## 获取组织架构
 ```php
-$collection = Yii::$app->get('authClientCollection');
-$client = $collection->getClient('fond');
-$response = $client->api('department/list', 'GET', $params);
+use summic\fond\components\FondClient;
+...
+$client = new FondClient();
+$response = $client->DepartmentUser(82);
 ```
 
 ## One more thing...

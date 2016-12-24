@@ -20,6 +20,17 @@ class Fond extends OAuth2
     public $apiBaseUrl = 'https://www.fond.io/api';
 
     /**
+     * 强制通过 header 传递Token,
+     * @inheritdoc
+     */
+    public function applyAccessTokenToRequest($request, $accessToken)
+    {
+        $header = $request->getHeaders();
+        $header['Authorization'] = "Bearer ". $accessToken->getToken();
+        $request->setHeaders($header);
+    }
+
+    /**
      * @inheritdoc
      */
     protected function initUserAttributes()
