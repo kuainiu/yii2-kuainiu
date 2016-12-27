@@ -88,6 +88,10 @@ php yii migrate --migrationPath=@vendor/summic/yii2-fond/migrations
 ],
 ```
 
+## 使用
+
+### OAuth 登录
+
 在登录页面增加 『使用企业通行证登录』 链接
 
 ```html
@@ -98,6 +102,7 @@ php yii migrate --migrationPath=@vendor/summic/yii2-fond/migrations
     </a>
 </div>
 ```
+或
 
 如果全站只允许员工访问，不需要登录页面，直接修改 SiteController 的 actionLogin 方法:
 
@@ -111,10 +116,7 @@ public function actionLogin()
 }
 ```
 
-## 使用
-
-### 用户信息
-在 view 文件中直接使用, 注意: 用户未登录界面调用会抛异常
+用户完成登录之后，用户资料的使用无任何变化，在 view 文件中直接使用, 注意: 用户未登录界面调用会抛异常
 ```html
 //头像
 <?=Yii::$app->user->identity->avatar?>
@@ -126,7 +128,7 @@ public function actionLogin()
 <?=Yii::$app->user->identity->position?>
 ```
 
-### 获取组织架构信息
+### API 获取组织架构信息
 ```php
 use fond\components\FondClient;
 ...
@@ -134,7 +136,7 @@ $client = new FondClient();
 $response = $client->DepartmentList(82);
 ```
 
-### 获取组织架构下的用户信息
+### API 获取组织架构下的用户信息
 ```php
 use fond\components\FondClient;
 ...
@@ -142,7 +144,7 @@ $client = new FondClient();
 $response = $client->DepartmentUser(82);
 ```
 
-### 发送企业微信消息
+### API 发送企业微信消息
 ```php
 use fond\components\FondClient;
 ...
@@ -152,7 +154,7 @@ $response = $client->Notification('Allen', 'Hello World');
 
 ## One more thing...
 
-如果你的项目使用了 AdinLTE, GOOGLE 字体被墙还是比较恶心的，在 composer.json 增加以下内容可解决：
+如果你的项目使用了 AdinLTE, GOOGLE 字体被墙会导致页面打开慢，在 composer.json 增加以下内容可解决：
 
 ```json
 "scripts": {
