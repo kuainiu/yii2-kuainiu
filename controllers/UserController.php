@@ -26,7 +26,7 @@ class UserController extends Controller
             ]
         ];
     }
-
+    
     /**
      * This function will be triggered when user is successfully authenticated using oAuth client.
      *
