@@ -34,6 +34,7 @@ composer install -vvv
 然后修改*需使用统一登录项目的*配置文件(main.php 或 main-local.php)
 
 ```php
+//按需配置
 'modules' => [
     'fond' => [
         'class' => 'fond\Module',
@@ -44,6 +45,7 @@ composer install -vvv
 authClient 的配置需要放在 common 项目的配置文件(main.php 或 main-local.php )
 
 ```php
+//全局配置
 return [
     'components' => [
 		'authClientCollection' => [
