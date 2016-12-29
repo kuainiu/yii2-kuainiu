@@ -20,7 +20,7 @@ composer require summic/yii2-fond
 或者手动添加到 composer.json
 
 ```
-"summic/yii2-fond-authclient": "*"
+"summic/yii2-fond": "*"
 ```
 之后
 ```
