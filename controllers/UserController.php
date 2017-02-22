@@ -60,9 +60,9 @@ class UserController extends Controller
                     $tableMap['username_field'] => $profile['username'],
                     $tableMap['email_field'] => $profile['email'],
                     $tableMap['password_hash_field'] => md5($profile['email'] . rand() . time()), // TODO: FIXME
-                    $tableMap['fullname_field'] = $profile['fullname'],
-                    $tableMap['avatar_field'] = $profile['avatar'],
-                    $tableMap['position_field'] = $profile['position']
+                    $tableMap['fullname_field'] => $profile['fullname'],
+                    $tableMap['avatar_field'] => $profile['avatar'],
+                    $tableMap['position_field'] => $profile['position']
                 ]);
                 if ($user->save()) {
                     Yii::$app->getSession()->setFlash('success', '帐号创建完成, 您需要向系统管理员申请权限后才能使用相应功能');
