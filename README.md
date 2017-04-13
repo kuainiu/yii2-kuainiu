@@ -29,7 +29,7 @@ composer install -vvv
 
 ## 配置
 
-首先需要在 [Fond.io](https://www.fond.io/developer/app-create) 注册您的应用
+首先需要在 内部通行证系统 注册您的应用
 
 然后修改*需使用统一登录项目的*配置文件(main.php 或 main-local.php)
 
