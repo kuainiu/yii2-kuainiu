@@ -154,7 +154,7 @@ $response = $client->Notification('Allen', 'Hello World');
 
 ## One more thing...
 
-如果你的项目使用了 AdinLTE, GOOGLE 字体被墙会导致页面打开慢，在 composer.json 增加以下内容可解决：
+如果你的项目使用了 AdminLTE, 其使用的 GOOGLE 字体不可描述原因会导致页面打开慢，在 composer.json 增加以下内容可解决：
 
 ```json
 "scripts": {
