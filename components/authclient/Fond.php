@@ -8,16 +8,16 @@ class Fond extends OAuth2
     /**
      * @inheritdoc
      */
-    public $authUrl = 'https://www.fond.io/auth';
+    public $authUrl = 'https://www.kuainiujinke.com/auth';
     /**
      * @inheritdoc
      */
-    public $tokenUrl = 'https://www.fond.io/auth/token';
+    public $tokenUrl = 'https://www.kuainiujinke.com/auth/token';
 
     /**
      * @inheritdoc
      */
-    public $apiBaseUrl = 'https://www.fond.io/api';
+    public $apiBaseUrl = 'https://www.kuainiujinke.com/api';
 
     /**
      * 强制通过 header 传递Token,
