@@ -6,7 +6,7 @@
  * Time: 3:23 PM
  */
 
-namespace fond;
+namespace kuainiu;
 
 class Module extends \yii\base\Module
 {

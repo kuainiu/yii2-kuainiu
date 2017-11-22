@@ -7,7 +7,7 @@
  * Time: 4:48 PM
  */
 
-namespace fond\controllers;
+namespace kuainiu\controllers;
 
 use yii;
 use yii\web\Controller;
@@ -38,7 +38,7 @@ class UserController extends Controller
         $profile = $client->getUserAttributes();
 
         $identityClass = \Yii::$app->user->identityClass;
-        $tableMap = Yii::$app->getModule('fond')->tableMap;
+        $tableMap = Yii::$app->getModule('kuainiu')->tableMap;
 
         $user = $identityClass::find()->where([
             $tableMap['email_field'] => $profile['email']

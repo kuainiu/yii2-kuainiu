@@ -1,23 +1,23 @@
 <?php
-namespace fond\components\authclient;
+namespace kuainiu\components\authclient;
 
 use yii\authclient\OAuth2;
 
-class Fond extends OAuth2
+class Kuainiu extends OAuth2
 {
     /**
      * @inheritdoc
      */
-    public $authUrl = 'https://www.kuainiujinke.com/auth';
+    public $authUrl = 'https://passport.kuainiu.io/auth';
     /**
      * @inheritdoc
      */
-    public $tokenUrl = 'https://www.kuainiujinke.com/auth/token';
+    public $tokenUrl = 'https://passport.kuainiu.io/auth/token';
 
     /**
      * @inheritdoc
      */
-    public $apiBaseUrl = 'https://www.kuainiujinke.com/api';
+    public $apiBaseUrl = 'https://api.kuainiu.io/v1';
 
     /**
      * 强制通过 header 传递Token,
@@ -44,13 +44,13 @@ class Fond extends OAuth2
      */
     protected function defaultName()
     {
-        return 'fond';
+        return 'kuainiu';
     }
     /**
      * @inheritdoc
      */
     protected function defaultTitle()
     {
-        return 'Fond';
+        return 'Kuainiu';
     }
 }

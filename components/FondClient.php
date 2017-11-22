@@ -6,16 +6,16 @@
  * Time: 2:16 PM
  */
 
-namespace fond\components;
+namespace kuainiu\components;
 
 use yii;
 
-class FondClient
+class KuainiuClient
 {
     public function __construct()
     {
         $collection = Yii::$app->get('authClientCollection');
-        $this->client = $collection->getClient('fond');
+        $this->client = $collection->getClient('kuainiu');
     }
 
     /**
