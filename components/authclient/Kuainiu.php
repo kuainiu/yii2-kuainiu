@@ -17,7 +17,7 @@ class Kuainiu extends OAuth2
     /**
      * @inheritdoc
      */
-    public $apiBaseUrl = 'https://api.kuainiu.io/v1';
+    public $apiBaseUrl = 'https://passport.kuainiu.io/api';
 
     /**
      * 强制通过 header 传递Token,
