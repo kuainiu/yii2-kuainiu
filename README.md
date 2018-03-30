@@ -14,7 +14,7 @@ yii2-kuainiu 需要使用 [composer](http://getcomposer.org/download/) 安装.
 在项目根目录运行
 
 ```
-composer require summic/yii2-kuainiu
+composer require kuainiu/yii2-kuainiu
 ```
 
 或者手动添加到 composer.json
@@ -46,20 +46,22 @@ authClient 的配置需要放在 common 项目的配置文件(main.php 或 main-
 
 ```php
 //全局配置
-return [
+$config = [
     'components' => [
-		'authClientCollection' => [
-	        'class' => 'yii\authclient\Collection',
-	        'clients' => [
-	            'kuainiu' => [
-	                'class' => 'kuainiu\components\authclient\Kuainiu',
-	                'clientId' => 'kuainiu_client_id',
-	                'clientSecret' => 'kuainiu_client_secret',
-	            ],
-	        ],
-	    ],
-	    ...
-	]
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'kuainiu' => [
+                    'class' => 'kuainiu\components\authclient\Kuainiu',
+                    'clientId' => 'kuainiu_client_id',
+                    'clientSecret' => 'kuainiu_client_secret',
+                    'authUrl' => 'https://*domain*/auth',
+                    'tokenUrl' => 'https://*domain*/auth/token',
+                    'apiBaseUrl' => 'https://*domain*/api'
+                ],
+            ],
+        ],
+    ]
 ];
  ```
 
