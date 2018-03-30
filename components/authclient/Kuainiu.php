@@ -8,16 +8,16 @@ class Kuainiu extends OAuth2
     /**
      * @inheritdoc
      */
-    public $authUrl = 'https://passport.kuainiu.io/auth';
+    public $authUrl = '';
     /**
      * @inheritdoc
      */
-    public $tokenUrl = 'https://passport.kuainiu.io/auth/token';
+    public $tokenUrl = '';
 
     /**
      * @inheritdoc
      */
-    public $apiBaseUrl = 'https://passport.kuainiu.io/api';
+    public $apiBaseUrl = '';
 
     /**
      * 强制通过 header 传递Token,
@@ -35,7 +35,7 @@ class Kuainiu extends OAuth2
      */
     protected function initUserAttributes()
     {
-        $response = $this->api('user/info', 'GET');
+        $response = $this->api('user', 'GET');
         return $response['data'];
     }
 
