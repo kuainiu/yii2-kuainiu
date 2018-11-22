@@ -43,7 +43,7 @@ class AdminLTEInstaller extends Installer
     {
         if (file_exists($cssFile)) {
             $content = file_get_contents($cssFile);
-            if ($content = str_replace('fonts.lug.ustc.edu.cn', 'fonts.css.network', $content)) {
+            if ($content = str_replace('fonts.googleapis.com', 'fonts.lug.ustc.edu.cn', $content)) {
                 file_put_contents($cssFile, $content);
                 echo "'{$cssFile}' google api replace success.\n";
             }
