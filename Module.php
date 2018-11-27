@@ -12,10 +12,10 @@ class Module extends \yii\base\Module
 {
     public $tableMap = [
         'user_table'            =>  '{{%user}}',
-        'username_field'        =>  'username',
+        'username_field'        =>  'name',
         'email_field'           =>  'email',
         'password_hash_field'   =>  'password_hash',
-        'fullname_field'        =>  'fullname',
+        'fullname_field'        =>  'chinese_name',
         'avatar_field'          =>  'avatar',
         'position_field'        =>  'position',
     ];
