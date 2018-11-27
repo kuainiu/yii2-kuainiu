@@ -46,7 +46,7 @@ class UserController extends Controller
 
         if ($user) { // 登录
             // 更新用户资料
-            $user->setAttribute($tableMap['fullname_field'], $profile['fullname']);
+            $user->setAttribute($tableMap['fullname_field'], $profile['chinese_name']);
             $user->setAttribute($tableMap['avatar_field'], $profile['avatar']);
             $user->setAttribute($tableMap['position_field'], $profile['position']);
             $user->save();
@@ -57,10 +57,10 @@ class UserController extends Controller
         } else { // 注册新用户
             if ($profile['email'] !== null) {
                 $user = new $identityClass([
-                    $tableMap['username_field'] => $profile['username'],
+                    $tableMap['username_field'] => $profile['name'],
                     $tableMap['email_field'] => $profile['email'],
                     $tableMap['password_hash_field'] => md5($profile['email'] . rand() . time()), // TODO: FIXME
-                    $tableMap['fullname_field'] => $profile['fullname'],
+                    $tableMap['fullname_field'] => $profile['chinese_name'],
                     $tableMap['avatar_field'] => $profile['avatar'],
                     $tableMap['position_field'] => $profile['position']
                 ]);

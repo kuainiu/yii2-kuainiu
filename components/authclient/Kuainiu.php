@@ -35,7 +35,7 @@ class Kuainiu extends OAuth2
      */
     protected function initUserAttributes()
     {
-        $response = $this->api('user', 'GET');
+        $response = $this->api('', 'GET');
         return $response['data'];
     }
 
