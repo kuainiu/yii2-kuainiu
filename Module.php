@@ -11,13 +11,21 @@ namespace kuainiu;
 class Module extends \yii\base\Module
 {
     public $tableMap = [
-        'user_table'            =>  '{{%user}}',
-        'username_field'        =>  'name',
-        'email_field'           =>  'email',
-        'password_hash_field'   =>  'password_hash',
-        'fullname_field'        =>  'chinese_name',
-        'avatar_field'          =>  'avatar',
-        'position_field'        =>  'position',
+        'user_table'          => '{{%user}}',
+        'username_field'      => 'name',
+        'email_field'         => 'email',
+        'password_hash_field' => 'password_hash',
+        'fullname_field'      => 'chinese_name',
+        'avatar_field'        => 'avatar',
+        'position_field'      => 'position',
+    ];
+
+    public $profileMap = [
+        'username_field' => 'name',
+        'email_field'    => 'email',
+        'fullname_field' => 'chinese_name',
+        'avatar_field'   => 'avatar',
+        'position_field' => 'position',
     ];
 
     public function init()

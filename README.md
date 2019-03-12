@@ -85,6 +85,13 @@ yii migrate --migrationPath=@vendor/kuainiu/yii2-kuainiu/migrations
             'avatar_field'          =>  'avatar',
             'position_field'        =>  'position',
         ],
+        'profileMap' => [ // Optional, but if defined, all must be declared
+            'username_field'        =>  'name',
+            'email_field'           =>  'email',
+            'fullname_field'        =>  'chinese_name',
+            'avatar_field'          =>  'avatar',
+            'position_field'        =>  'position',
+        ],
     ],
     ...
 ],
