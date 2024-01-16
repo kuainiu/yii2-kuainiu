@@ -4,7 +4,7 @@
   "keywords": ["yii2", "authclient", "oauth", "kuainiu"],
   "homepage": "https://github.com/kuainiu/yii2-kuainiu.git",
   "require": {
-    "yiisoft/yii2-authclient": "~2.1.0"
+    "yiisoft/yii2-authclient": "~> 2.2.15"
   },
   "license": "MIT",
   "authors": [
